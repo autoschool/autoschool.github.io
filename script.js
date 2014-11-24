@@ -71,8 +71,7 @@
                 .append('g')
                 .classed('timeline-group', true)
                 .attr('transform', 'translate(0, '+this.teamOffset+')');
-        var barGap = this.barHeight / 4,
-            bars = elm.selectAll('.point').data(team.commits).enter().append('circle');
+        var bars = elm.selectAll('.point').data(team.commits).enter().append('circle');
 
         bars.attr({
             'class': 'point',
@@ -90,7 +89,7 @@
         this.renderTeamTitle(elm, team, x, y);
 
         elm.append('g').classed('axis', true).call(
-            d3.svg.axis().scale(y).orient('left')
+            d3.svg.axis().scale(y).orient('left').outerTickSize(0)
         );
         this.teamOffset += height;
     };
