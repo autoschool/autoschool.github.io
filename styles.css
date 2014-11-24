@@ -1,0 +1,9 @@
+.commit {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.commit .media-heading a {
+    color: #333;
+    text-decoration: underline;
+}

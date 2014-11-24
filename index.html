@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Autoschool news</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <div class="page-header container">
+        <h1>Auto school activity</h1>
+        <p id="counter"></p>
+    </div>
+    <div id="graph"></div>
+    <div id="commits" class="container"></div>
+    <script src="http://d3js.org/d3.v3.js"></script>
+    <script src="https://yastatic.net/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://yastatic.net/underscore/1.6.0/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+    <script src="script.js"></script>
+    <script type="text/template" id="commitTpl">
+        <% commits.forEach(function(record) { %>
+            <div class="commit media">
+                <a class="media-left">
+                    <img src="<%= record.author ? record.author.avatar_url : 'https://i2.wp.com/assets-cdn.github.com/images/gravatars/gravatar-user-420.png' %>" alt="avatar" width="50">
+                </a>
+                <div class="media-body">
+                    <h5 class="media-heading"><a href="<%= record.html_url %>"><%= record.commit.message %></a></h5>
+                    <p>
+                        <% if(record.author) { %>
+                        <a href="<%= record.author.html_url %>"><%= record.author.login %></a>
+                        <% } else { %>
+                        <%= record.commit.author.name %>
+                        <% } %>
+                        (<a href="https://github.com/autoschool/<%= record.team %>"><%= record.team %></a>),
+                        <span title="<%= moment(record.commit.author.date).format('LLLL') %>"><%= moment(record.commit.author.date).fromNow() %></span>
+                    </p>
+                </div>
+            </div>
+        <% }) %>
+    </script>
+</body>
+</html>
