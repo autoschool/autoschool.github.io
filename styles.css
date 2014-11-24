@@ -7,3 +7,39 @@
     color: #333;
     text-decoration: underline;
 }
+
+#graph svg {
+    display: block;
+    width: 100%;
+}
+
+#graph .tick-line {
+    stroke: #000;
+    stroke-opacity: 0.1;
+    stroke-width: 1px;
+}
+#graph .timeline-group-title {
+    font-size: 18px;
+}
+#graph .timeline-group-cover {
+    fill: rgb(246, 245, 243);
+    shape-rendering: crispEdges;
+}
+
+#graph .axis {
+    font-size: 14px;
+}
+
+#graph .axis path {
+    fill: none;
+}
+#graph .axis path, #graph .axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+#graph .point {
+    fill: steelblue;
+}
+
