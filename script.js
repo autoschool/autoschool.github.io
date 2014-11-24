@@ -47,8 +47,12 @@
         this.svg = d3.select(elm[0]).append('svg').style('height', chartHeight + margin.top + margin.bottom).append('g').attr('transform', 'translate(' + margin.left + ','+ margin.top +')');
         this.svg.append('g').classed('chart-group', true);
         this.svg.append('g').classed('x-axis-group axis', true);
+        this.svg.append('g').classed('x-axis-group-top axis', true);
         this.svg.append('g').classed('y-axis-group axis', true);
         this.svg.select('.x-axis-group.axis').attr({transform: 'translate(0,' + (chartHeight) + ')'}).call(xAxis);
+        this.svg.select('.x-axis-group-top.axis').call(d3.svg.axis().scale(x).orient('top').tickFormat(function(d) {
+            return moment(d).format('D MMM');
+        }));
 
         //create empty set of lines
         var stripesPlaceholder = this.svg.select('.chart-group').selectAll('line.x');
