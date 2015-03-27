@@ -8,15 +8,13 @@
         'vorobushek',
         'ya.blogo',
         'zlogger'
-    ],
-    twoWeeksAgo = moment().subtract(2, 'weeks');
+    ];
     function fetchCommits(team) {
-        var commitUrl = 'https://api.github.com/repos/autoschool/{team}/commits?client_id={id}&client_secret={secret}&since={since}';
+        var commitUrl = 'https://api.github.com/repos/autoschool/{team}/commits?client_id={id}&client_secret={secret}';
         return $.getJSON(commitUrl
             .replace('{team}', team)
             .replace('{id}', '933ebc0ad1bd61fbc7fa')
             .replace('{secret}', '5bdca935f01ae215547868660ea8fe53a3d0ffb2')
-            .replace('{since}', twoWeeksAgo.toJSON())
         )
     }
 
@@ -109,17 +107,21 @@
     };
 
     $(function() {
+        var from = Number.POSITIVE_INFINITY, to = Number.NEGATIVE_INFINITY;
         $.when.apply($, teams.map(fetchCommits)).done(function() {
             var results = Array.prototype.slice.call(arguments);
             var commits = _.flatten(results.map(function(result, i) {
                 var commits = result[0];
                 commits.forEach(function(commit) {
+                    var timestamp = new Date(commit.author.date).valueOf();
+                    from = Math.min(timestamp, from);
+                    to = Math.max(timestamp, to);
                     commit.team = teams[i];
                     commit.user = commit.author ? commit.author.login : 'undefined';
                 });
                 return commits;
             }));
-            $('#counter').html(commits.length + ' commits since ' + twoWeeksAgo.format('ddd, D MMMM YYYY'));
+            $('#counter').html(commits.length + ' commits');
             new CommitsView($('#commits'), commits, $('#commitTpl').html());
             var chartData = _.chain(commits).groupBy('team').pairs().sortBy('0').map(function(val) {
                 return {
@@ -130,7 +132,7 @@
                     commits: val[1]
                 }
             }).value();
-            new TeamsViewChart($('#graph'), chartData, [twoWeeksAgo.toDate(), new Date()]);
+            new TeamsViewChart($('#graph'), chartData, [new Date(from), new Date(to)]);
         });
     });
 
