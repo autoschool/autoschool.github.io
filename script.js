@@ -113,7 +113,7 @@
             var commits = _.flatten(results.map(function(result, i) {
                 var commits = result[0];
                 commits.forEach(function(commit) {
-                    var timestamp = new Date(commit.author.date).valueOf();
+                    var timestamp = new Date(commit.committer.date).valueOf();
                     from = Math.min(timestamp, from);
                     to = Math.max(timestamp, to);
                     commit.team = teams[i];
