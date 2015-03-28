@@ -113,7 +113,7 @@
             var commits = _.flatten(results.map(function(result, i) {
                 var commits = result[0];
                 commits.forEach(function(commit) {
-                    var timestamp = new Date(commit.committer.date).valueOf();
+                    var timestamp = new Date(commit.commit.author.date).valueOf();
                     from = Math.min(timestamp, from);
                     to = Math.max(timestamp, to);
                     commit.team = teams[i];
@@ -130,7 +130,7 @@
                         return d === 'undefined' ? "0" : d.toLowerCase();
                     }).value(),
                     commits: val[1]
-                }
+                };
             }).value();
             new TeamsViewChart($('#graph'), chartData, [new Date(from), new Date(to)]);
         });
