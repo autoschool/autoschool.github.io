@@ -1,13 +1,6 @@
 (function (exports, $, _){
     var teams = [
-        'baguette',
-        'hlebushek',
-        'splinter',
-        'switter',
-        'twister',
-        'vorobushek',
-        'ya.blogo',
-        'zlogger'
+        'practice2016'
     ];
     function fetchCommits(team) {
         var commitUrl = 'https://api.github.com/repos/autoschool/{team}/commits?client_id={id}&client_secret={secret}';
