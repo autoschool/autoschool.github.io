@@ -8,7 +8,7 @@
 #### Скачиваем
 
 1. Поставить инструментарий - IDEA, maven, git, java
-2. Форкнуть к себе репозиторий [practice2016](https://github.com/autoschool/practice2016) и склонировать форк
+2. Форкнуть к себе репозиторий (в ветке **step-1**) [practice2016:step-1](https://github.com/autoschool/practice2016/tree/step-1) и склонировать форк
 3. Создать ветку 
 
 #### Правим
