@@ -2,23 +2,33 @@
 
 ### Практика:
 
+#### Слайды
+
+- [Презентация](https://speakerdeck.com/kurau/webtestsfinal)
+
 #### Скачиваем
 
 1. Нужно поставить FireFox. У меня 45.0.2
 2. Поставить на него плагины FirePath + Firebug
-3. Форкнуть к себе репозиторий (в ветке **webtests**) [practice2016:webtests](https://github.com/autoschool/practice2016/tree/webtests) и склонировать форк
+3. Форкнуть к себе репозиторий [practice2016](https://github.com/autoschool/practice2016/) и склонировать форк
 4. Создать ветку
 
 #### Где и что лежит?
 
-5. В модуле `commons-module` находится заготовка для теста `ru.qatools.school.webtests.WeatherTest`
+5. В модуле `commons-module` находится пример теста `ru.qatools.school.webtests.WeatherTest`
 6. В модуле `steps-module` лежит начальное описание страницы `ru.qatools.school.pages.MainPage`
 7. В модуле `steps-module` находится класс с шагами `ru.qatools.school.steps.websteps.DefaultSteps`
 
 #### Пишем тесты
 
+
+Сценарий 1.
+
     1. Заходим на страницу погодного сайта указывая в урле нужный город
-    2. Проверяем, что на странице есть виджет в котором отбражается нужный город.
+    2. Проверяем, что на странице есть виджет в котором отбражается заявленный город.
+
+
+Сценарий 2.
 
     1. Заходим на страницу погодного сайта указывая в урле нужный город
     2. Нажимаем на кнопку «Добавить виджет»
