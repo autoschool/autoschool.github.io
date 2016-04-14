@@ -15,7 +15,7 @@
 
 #### Где и что лежит?
 
-5. В модуле `commons-module` находится пример теста `ru.qatools.school.webtests.WeatherTest`
+5. В модуле `commons-module` находится пример теста `ru.qatools.school.webtests.WeatherWebTest`
 6. В модуле `steps-module` лежит начальное описание страницы `ru.qatools.school.pages.MainPage`
 7. В модуле `steps-module` находится класс с шагами `ru.qatools.school.steps.websteps.DefaultSteps`
 
