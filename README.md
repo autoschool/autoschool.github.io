@@ -5,3 +5,5 @@
 - [Lesson 02 - Gimme your first autotest (+ practice)](shtya16/02-gimme-your-first-autotest.md)
 
 - [Lesson 03 - Your first webtest](shtya16/03-your-first-webtest.md)
+ 
+- [Lesson 06 - Intro to testing of web apps](shtya16/06-intro-in-testing-web-interfaces.md)
