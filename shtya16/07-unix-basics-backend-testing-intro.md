@@ -1,5 +1,7 @@
 ## Тестирование бэкенда. Практика
 
+[Презентация](https://speakerdeck.com/alexvox/ru-backend-testing-intro)
+
 ### Описание API
 
 Документация API Weather лежит здесь: [Weather Application API documentation](http://weather.lanwen.ru/api.html)
