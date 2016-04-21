@@ -7,3 +7,5 @@
 - [Lesson 03 - Your first webtest](shtya16/03-your-first-webtest.md)
  
 - [Lesson 06 - Intro to testing of web apps](shtya16/06-intro-in-testing-web-interfaces.md)
+- 
+- [Lesson 07 - Unix basics & backend testing intro ](shtya16/07-unix-basics-backend-testing-intro.md)
