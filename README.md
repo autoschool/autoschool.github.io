@@ -8,4 +8,6 @@
  
 - [Lesson 06 - Intro to testing of web apps](shtya16/06-intro-in-testing-web-interfaces.md)
  
-- [Lesson 07 - Unix basics & backend testing intro ](shtya16/07-unix-basics-backend-testing-intro.md)
+- [Lesson 07 - Unix basics & backend testing intro](shtya16/07-unix-basics-backend-testing-intro.md)
+
+- [Lesson 09 - Intro to API autotests](shtya16/09-intro-to-api-autotests.md)
