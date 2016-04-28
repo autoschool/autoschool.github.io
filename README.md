@@ -11,3 +11,6 @@
 - [Lesson 07 - Unix basics & backend testing intro](shtya16/07-unix-basics-backend-testing-intro.md)
 
 - [Lesson 09 - Intro to API autotests](shtya16/09-intro-to-api-autotests.md)
+
+- [Lesson 10 - Intro to Databases](shtya16/10-database-intro.md)
+
