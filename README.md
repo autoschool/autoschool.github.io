@@ -14,3 +14,4 @@
 
 - [Lesson 10 - Intro to Databases](shtya16/10-database-intro.md)
 
+- [Lesson 11 - Desktop testing intro](shtya16/11-desktop-testing-intro.md)
