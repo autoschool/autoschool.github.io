@@ -1,0 +1,70 @@
+- name: Install appium environment
+  hosts: 127.0.0.1
+  connection: local
+  sudo: yes
+  vars:
+    android_sdk: "http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz"
+    node_js: "https://deb.nodesource.com/setup_6.x"
+    android_sdk_install_location: "/opt"
+    android_sdk_base_buildtools_version: "23.0.0"
+    env_path: "/usr/local/sbin:/usr/local/bin:{{ android_sdk_install_location }}/android-sdk-linux/build-tools/{{ android_sdk_base_buildtools_version }}:{{ android_sdk_install_location }}/android-sdk-linux/tools/:{{ android_sdk_install_location }}/android-sdk-linux/build-tools/:{{ android_sdk_install_location }}/android-sdk-linux/platform-tools/:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+    android_home: "{{ android_sdk_install_location }}/android-sdk-linux/"
+  tasks:
+    - name: enable i386 arch in aptitude
+      command: dpkg --add-architecture i386
+
+    - name: ensure apt cache is up to date
+      apt: update_cache=yes
+
+    - name: install ubuntu packages
+      apt:
+        name: "{{ item }}"
+        force: yes
+        state: installed
+      with_items:
+        - libc6:i386
+        - libstdc++6:i386
+        - maven
+        - openjdk-7-jdk
+        - qemu-kvm
+        - qemu-system-x86
+        - wget
+        - zlib1g:i386
+
+    - name: download android sdk
+      shell: "wget -qO- {{ android_sdk }} | tar -zxv -C {{ android_sdk_install_location }}"
+
+    - name: change permissions on SDK tools
+      file: path={{ android_sdk_install_location }}/android-sdk-linux recurse=yes mode=0755
+
+    - name: set system wide PATH to contain Android SDK tools
+      lineinfile: dest=/etc/environment regexp=^PATH line='PATH="{{ env_path }}"'
+
+    - name: set system wide ANDROID_HOME environment variable
+      lineinfile: dest=/etc/environment regexp=^ANDROID_HOME line='ANDROID_HOME="{{ android_home }}"'
+
+    - name: update Android SDKs
+      shell: echo y | android update sdk -u -a -t "{{ item }}"
+      with_items:
+        - tools
+        - platform-tools
+        - build-tools-{{ android_sdk_base_buildtools_version }}
+        - android-19
+        - sys-img-armeabi-v7a-android-19
+        - sys-img-x86-android-19
+      environment:
+         PATH: "{{ env_path }}"
+
+    - name: create avd x86
+      sudo: no
+      shell: "echo \"no\" | android create avd --force --name Aphone-X86 --target android-19 --skin WVGA800 --abi default/x86"
+
+    - name: create avd arm
+      sudo: no
+      shell: "echo \"no\" | android create avd --force --name Aphone-ARM --target android-19 --skin WVGA800 --abi default/armeabi-v7a"
+
+    - name: add nodejs ppa
+      shell: "curl --silent --location {{ node_js }} | bash -"
+
+    - name: install nodejs
+      apt: name=nodejs state=present
