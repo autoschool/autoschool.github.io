@@ -17,3 +17,5 @@
 - [Lesson 11 - Desktop testing intro](shtya16/11-desktop-testing-intro.md)
 
 - [Lesson 12 - Mobile app testing intro](shtya16/12-mobile-app-testing-intro.md)
+
+- [Lesson 13 - Intro to mobile autotests](shtya16/13-intro-to-mobile-autotests.md)
