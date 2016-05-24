@@ -19,3 +19,5 @@
 - [Lesson 12 - Mobile app testing intro](shtya16/12-mobile-app-testing-intro.md)
 
 - [Lesson 13 - Intro to mobile autotests](shtya16/13-intro-to-mobile-autotests.md)
+
+- [Lesson 14 - Continuous Integration](shtya16/14-ci-cd.md)
