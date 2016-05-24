@@ -15,7 +15,7 @@
 
 #### Шаги (Windows)
 
-1. Скачиваем jenkins.war
+1. Скачиваем jenkins.war с https://jenkins.io
 2. Запускаем дженкинс
 `java -Dhudson.model.DirectoryBrowserSupport.CSP="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';" -Djenkins.model.DirectoryBrowserSupport.CSP="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';" -jar jenkins.war --httpPort=9090`
 
@@ -25,5 +25,5 @@
 4. Создаем задачу
 Задачу нужно научить делать следующее
 - клонировать код из репозитория `https://github.com/autoschool/practice2016.git`
-- запускать системные автотесты
+- запускать системные автотесты mvn clean test
 - строить отчет c помощью `Allure Jenkins Plugin`
